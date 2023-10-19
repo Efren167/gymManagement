@@ -1,5 +1,6 @@
 package com.angef.gymManager.dto;
 import lombok.Getter;
+import java.io.Serializable;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -7,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SubscriberDTO {
+public class SubscriberDTO implements Serializable {
 	
 	private String name;
 	private String surname;
