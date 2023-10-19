@@ -24,6 +24,8 @@ public class Subscriber {
 	private String surname;
 	@Column(name = "name", nullable = false)
 	private String dni;
+	@Column(name = "email", nullable = false)
+	private String email;
 	@Column(name = "name", nullable = false)
 	private String phone;
 
