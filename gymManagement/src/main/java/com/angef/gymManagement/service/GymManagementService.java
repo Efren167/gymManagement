@@ -19,13 +19,13 @@ public class GymManagementService {
 
 		List<Subscriber> subscribers = this.subscriberRepository.findAll();
 		List<SubscriberDTO> lstSubscriberDTO = new ArrayList<>();
-		for (Subscriber subscriber : subscribers) {
+		subscribers.stream().forEach(subscriber -> {
 			SubscriberDTO subscriberDTO = SubscriberDTO.builder().name(subscriber.getName())
 					.surname(subscriber.getSurname()).dni(subscriber.getDni()).email(subscriber.getEmail())
 					.phone(subscriber.getPhone()).build();
 			lstSubscriberDTO.add(subscriberDTO);
-		}
-
+		});
+		
 		return lstSubscriberDTO;
 	}
 
