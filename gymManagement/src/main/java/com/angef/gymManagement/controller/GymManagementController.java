@@ -1,14 +1,25 @@
 package com.angef.gymManagement.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.angef.gymManagement.dto.SubscriberDTO;
+import com.angef.gymManagement.service.GymManagementService;
+
 @RestController
-@RequestMapping("api/v0/")
+@RequestMapping("api/v0")
 public class GymManagementController {
 	
-	private final GymManagerService gymManagerService;
+	@Autowired
+	private GymManagementService gymManagementService;
 	
 	@GetMapping("/subscribers")
-	public List<Subscriber> getSubscribers() {
-		return this.gymManagerService.getSubscribers();
+	public List<SubscriberDTO> getSubscribers() {
+		return this.gymManagementService.getAllSubscribers();
 	}
 
 }
