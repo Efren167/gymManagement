@@ -25,7 +25,7 @@ public class GymManagementService {
 					.phone(subscriber.getPhone()).build();
 			lstSubscriberDTO.add(subscriberDTO);
 		});
-		
+
 		return lstSubscriberDTO;
 	}
 
