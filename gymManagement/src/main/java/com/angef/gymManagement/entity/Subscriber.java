@@ -27,6 +27,7 @@ public class Subscriber {
 	private String email;
 	@Column(name = "phone", nullable = false)
 	private String phone;
+	
 	public Long getId() {
 		return id;
 	}
