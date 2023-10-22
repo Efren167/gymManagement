@@ -17,7 +17,6 @@ public class GymManagementService {
 	private SubscriberRepository subscriberRepository;
 	
 	public List<SubscriberDTO> getAllSubscribers() {
-
 		List<Subscriber> subscribers = this.subscriberRepository.findAll();
 		List<SubscriberDTO> lstSubscriberDTO = new ArrayList<>();
 		subscribers.stream().forEach(subscriber -> {
@@ -37,7 +36,6 @@ public class GymManagementService {
 	}
 
 	private SubscriberDTO convertToDTO(Subscriber subscriber) {
-
 		SubscriberDTO subscriberDTO = SubscriberDTO.builder().id(subscriber.getId()).name(subscriber.getName())
 				.surname(subscriber.getSurname()).dni(subscriber.getDni()).email(subscriber.getEmail())
 				.phone(subscriber.getPhone()).build();
