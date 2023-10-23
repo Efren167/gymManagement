@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 @Entity
 
 public class Management {
-
+	
 	private boolean invoiced;
 	private boolean access;
 
@@ -30,11 +30,11 @@ public class Management {
 	}
 
 	{
-		if (invoiced == true) {
-			access = true;
-		} else {
-			access = false;
-		}
+//		if (invoiced == true) {
+//			access = true;
+//		} else {
+//			access = false;
+//		}
 
 	}
 }

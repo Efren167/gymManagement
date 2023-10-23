@@ -5,8 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
-@Entity
-@NoArgsConstructor
+@Entity@NoArgsConstructor
 @Table(name = "SUBSCRIBER")
 public class Subscriber {
 	
@@ -24,6 +23,16 @@ public class Subscriber {
 	private String email;
 	@Column(name = "phone", nullable = false)
 	private String phone;
+	@Column(name = "invoiced", nullable = false)
+	private String invoiced;
+	
+	
+	public String getInvoiced() {
+		return invoiced;
+	}
+	public void setInvoiced(String invoiced) {
+		this.invoiced = invoiced;
+	}
 	public Long getId() {
 		return id;
 	}
