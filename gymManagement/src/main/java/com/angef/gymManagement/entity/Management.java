@@ -3,7 +3,7 @@ package com.angef.gymManagement.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +26,7 @@ public class Management {
 		this.access = access;
 	}
 	
-	@ManyToOne(optional = false)
+	@OneToOne(optional = false)
     private Subscriber subscriber;
 
 	public Subscriber getSubscriber() {
