@@ -65,12 +65,5 @@ public class Management {
 		this.access = access;
 	}
 
-	{
-//		if (invoiced == true) {
-//			access = true;
-//		} else {
-//			access = false;
-//		}
-
 	}
-}
+
