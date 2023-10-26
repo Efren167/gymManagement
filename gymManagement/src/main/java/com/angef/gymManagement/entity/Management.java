@@ -3,6 +3,7 @@ package com.angef.gymManagement.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -11,8 +12,9 @@ import jakarta.persistence.Table;
 public class Management {
 
 	@Id
-	@Column(name = "id")
-	private long Id;
+	@OneToOne
+	@JoinColumn(name = "id")
+	private Subscriber subscriptionId;
 
 	@Column(name = "invoiced")
 	private boolean invoiced;
@@ -20,33 +22,13 @@ public class Management {
 	@Column(name = "access")
 	private boolean access;
 
-	public Management(long id, boolean invoiced, boolean access) {
-		this.Id = id;
+	public Management(boolean invoiced, boolean access) {
 		this.invoiced = invoiced;
 		this.access = access;
-	}
-	
-	@OneToOne(optional = false)
-    private Subscriber subscriber;
-
-	public Subscriber getSubscriber() {
-		return subscriber;
-	}
-
-	public void setSubscriber(Subscriber subscriber) {
-		this.subscriber = subscriber;
 	}
 
 	public boolean isAccess() {
 		return access;
-	}
-
-	public long getId() {
-		return Id;
-	}
-
-	public void setId(long Id) {
-		this.Id = Id;
 	}
 
 	public boolean isInvoiced() {
@@ -65,5 +47,4 @@ public class Management {
 		this.access = access;
 	}
 
-	}
-
+}
