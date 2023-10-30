@@ -29,11 +29,6 @@ public class Management {
 	@Column(name = "access")
 	private boolean access;
 
-	public Management(boolean invoiced, boolean access) {
-		this.invoiced = invoiced;
-		this.access = access;
-	}
-
 	public boolean isAccess() {
 		return access;
 	}
