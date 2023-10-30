@@ -22,4 +22,6 @@ public class GymManagementController {
 		return this.gymManagementService.getAllSubscribers();
 	}
 
+
+
 }

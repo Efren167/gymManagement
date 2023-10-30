@@ -1,27 +1,40 @@
 package com.angef.gymManagement.dto;
 
+
 public class ManagementDTO {
 	    private boolean invoiced;
 	    private boolean access;
+  
+	    private ManagementDTO(Builder builder) {
+			this.invoiced = builder.invoiced;
+			this.access = builder.access;
+		}
 	    
-	    private ManagementDTO() {
-	    }
+		public void setInvoiced(boolean invoiced) {
+			this.invoiced = invoiced;
+		}
 
-	    public boolean isInvoiced() {
+		public void setAccess(boolean access) {
+			this.access = access;
+		}
+
+		public boolean getInvoiced() {
 	        return invoiced;
 	    }
 
 	    
-	    public boolean hasAccess() {
+	    public boolean getAccess() {
 	        return access;
 	    }
-
+	    
+		 public static Builder builder() {
+		        return new Builder();
+		    }
+	    
 	    public static class Builder {
 	        private boolean invoiced;
 	        private boolean access;
 
-	        public Builder() {
-	        }
 
 	        public Builder withInvoiced(boolean invoiced) {
 	            this.invoiced = invoiced;
@@ -33,21 +46,10 @@ public class ManagementDTO {
 	            return this;
 	        }
 
-	        public ManagementDTO build() {
-	            ManagementDTO managementDTO = new ManagementDTO();
-	            managementDTO.invoiced = this.invoiced;
-	            managementDTO.access = this.access;
-	            return managementDTO;
-	        }
-	    }
-
-	    @Override
-	    public String toString() {
-	        return "ManagementDTO{" +
-	                "invoiced=" + invoiced +
-	                ", access=" + access +
-	                '}';
-	    }
+			public ManagementDTO build() {
+				return new ManagementDTO(this);
+			}
 	}
+}
 
 
