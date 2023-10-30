@@ -2,6 +2,7 @@ package com.angef.gymManagement.dto;
 
 public class SubscriberDTO {
 
+	private final Long id;
 	private final String name;
 	private final String surname;
 	private final String dni;
@@ -9,11 +10,16 @@ public class SubscriberDTO {
 	private final String phone;
 
 	private SubscriberDTO(Builder builder) {
+		this.id = builder.id;
 		this.name = builder.name;
 		this.surname = builder.surname;
 		this.dni = builder.dni;
 		this.email = builder.email;
 		this.phone = builder.phone;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -41,11 +47,17 @@ public class SubscriberDTO {
 	    }
 
 	public static class Builder {
+		private Long id;
 		private String name;
 		private String surname;
 		private String dni;
 		private String email;
 		private String phone;
+		
+		public Builder id(Long id) {
+			this.id = id;
+			return this;
+		}
 
 		public Builder name(String name) {
 			this.name = name;
