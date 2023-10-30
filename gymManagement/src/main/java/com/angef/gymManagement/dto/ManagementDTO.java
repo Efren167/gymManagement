@@ -2,6 +2,7 @@ package com.angef.gymManagement.dto;
 
 
 public class ManagementDTO {
+	private Long id;
 	    private boolean invoiced;
 	    private boolean access;
   
