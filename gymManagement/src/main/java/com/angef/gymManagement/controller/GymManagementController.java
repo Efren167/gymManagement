@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.angef.gymManagement.dto.ManagementDTO;
 import com.angef.gymManagement.dto.SubscriberDTO;
 import com.angef.gymManagement.service.GymManagementService;
 
@@ -21,7 +22,10 @@ public class GymManagementController {
 	public List<SubscriberDTO> getSubscribers() {
 		return this.gymManagementService.getAllSubscribers();
 	}
-
+	@GetMapping("/payments")
+	public List<ManagementDTO> getPayments(){
+		return this.gymManagementService.getAllPayments();
+	}
 
 
 }
