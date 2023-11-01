@@ -22,7 +22,6 @@ public class GymManagementService {
 	@Autowired
 	private ManagementRepository managementRepository;
 
-
 	public List<SubscriberDTO> getAllSubscribers() {
 		List<Subscriber> subscribers = this.subscriberRepository.findAll();
 		List<SubscriberDTO> lstSubscriberDTO = new ArrayList<>();
@@ -35,11 +34,11 @@ public class GymManagementService {
 
 		return lstSubscriberDTO;
 	}
-	
+
 	public Optional<SubscriberDTO> getSubscriber(Long id) {
-	    Optional<Subscriber> subscriber = subscriberRepository.findById(id);
-	    Optional<SubscriberDTO> subscriberDTO = subscriber.map(sub -> convertToDTO(sub));
-	    return subscriberDTO;
+		Optional<Subscriber> subscriber = subscriberRepository.findById(id);
+		Optional<SubscriberDTO> subscriberDTO = subscriber.map(sub -> convertToDTO(sub));
+		return subscriberDTO;
 	}
 
 	private SubscriberDTO convertToDTO(Subscriber subscriber) {
@@ -50,13 +49,14 @@ public class GymManagementService {
 		return subscriberDTO;
 	}
 
-
 	public List<ManagementDTO> getAllPayments() {
 
 		List<Management> payments = this.managementRepository.findAll();
 		List<ManagementDTO> lstManagementDTO = new ArrayList<>();
 		payments.stream().forEach(payment -> {
-			ManagementDTO managementDTO = ManagementDTO.builder().withInvoiced(payment.isInvoiced()).withAccess(payment.isAccess()).build();
+			ManagementDTO managementDTO = ManagementDTO.builder()
+					.subscriberId(payment.getSubscriptionId().getId()).withAccess(payment.isAccess())
+					.withInvoiced(payment.isInvoiced()).build();
 			lstManagementDTO.add(managementDTO);
 		});
 

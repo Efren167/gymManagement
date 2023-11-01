@@ -22,12 +22,28 @@ public class Management {
 	@OneToOne
 	@JoinColumn(name = "id")
 	private Subscriber subscriptionId;
-	
+
 	@Column(name = "invoiced")
 	private boolean invoiced;
 
 	@Column(name = "access")
 	private boolean access;
+
+	public Long getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(Long paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public Subscriber getSubscriptionId() {
+		return subscriptionId;
+	}
+
+	public void setSubscriptionId(Subscriber subscriptionId) {
+		this.subscriptionId = subscriptionId;
+	}
 
 	public boolean isAccess() {
 		return access;
