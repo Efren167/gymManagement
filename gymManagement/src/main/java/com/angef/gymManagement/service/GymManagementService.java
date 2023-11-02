@@ -56,10 +56,12 @@ public class GymManagementService {
 		List<Management> payments = this.managementRepository.findAll();
 		List<ManagementDTO> lstManagementDTO = new ArrayList<>();
 		payments.stream().forEach(payment -> {
-			ManagementDTO managementDTO = ManagementDTO.builder().withInvoiced(payment.isInvoiced()).withAccess(payment.isAccess()).build();
+			ManagementDTO managementDTO = ManagementDTO.builder().id(payment.getSubscriptionId().getId()).withInvoiced(payment.isInvoiced()).withAccess(payment.isAccess()).build();
 			lstManagementDTO.add(managementDTO);
 		});
 
 		return lstManagementDTO;
 	}
+
 }
+	

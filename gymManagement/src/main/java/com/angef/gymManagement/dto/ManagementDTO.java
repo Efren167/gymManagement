@@ -1,16 +1,29 @@
 package com.angef.gymManagement.dto;
 
+import com.angef.gymManagement.entity.Subscriber;
 
 public class ManagementDTO {
-	private Long id;
+		private Long id;
 	    private boolean invoiced;
 	    private boolean access;
   
 	    private ManagementDTO(Builder builder) {
+	    	this.id = builder.id;
 			this.invoiced = builder.invoiced;
 			this.access = builder.access;
 		}
 	    
+	    
+		public Long getId() {
+			return id;
+		}
+
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+
 		public void setInvoiced(boolean invoiced) {
 			this.invoiced = invoiced;
 		}
@@ -33,12 +46,17 @@ public class ManagementDTO {
 		    }
 	    
 	    public static class Builder {
-	        private boolean invoiced;
+	    	private Long id;
+			private boolean invoiced;
 	        private boolean access;
 
 
 	        public Builder withInvoiced(boolean invoiced) {
 	            this.invoiced = invoiced;
+	            return this;
+	        }
+	        public Builder id(Long id) {
+	            this.id = id;
 	            return this;
 	        }
 

@@ -28,6 +28,24 @@ public class Management {
 
 	@Column(name = "access")
 	private boolean access;
+	
+	
+
+	public Long getPaymentId() {
+		return paymentId;
+	}
+
+	public Subscriber getSubscriptionId() {
+		return subscriptionId;
+	}
+
+	public void setPaymentId(Long paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public void setSubscriptionId(Subscriber subscriptionId) {
+		this.subscriptionId = subscriptionId;
+	}
 
 	public boolean isAccess() {
 		return access;
