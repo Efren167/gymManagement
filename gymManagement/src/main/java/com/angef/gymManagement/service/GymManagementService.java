@@ -76,7 +76,7 @@ public class GymManagementService {
             return subscriberRepository.save(existingSubscriber);
         }
 
-        return null; // Manejo de error si no se encuentra el suscriptor
+        return null;
     }
 	
 }
