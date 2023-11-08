@@ -27,7 +27,19 @@ public class GymManagementController {
 	@GetMapping("/subscribers")
 	public List<SubscriberDTO> getSubscribers() {
 		return this.gymManagementService.getAllSubscribers();
-		
+
+	}
+
+	@PutMapping("/subscribers/{id}")
+	public ResponseEntity<Subscriber> updateSubscriber(@PathVariable Long id,
+			@RequestBody Subscriber updatedSubscriber) {
+		Subscriber updated = gymManagementService.updateSubscriber(id, updatedSubscriber);
+
+		if (updated != null) {
+			return ResponseEntity.ok(updated);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	@GetMapping("/payments")
@@ -35,17 +47,4 @@ public class GymManagementController {
 		return this.gymManagementService.getAllPayments();
 	}
 
-	 @PutMapping("/subscribers/{id}")
-	    public ResponseEntity<Subscriber> updateSubscriber(@PathVariable Long id, @RequestBody Subscriber updatedSubscriber) {
-	        Subscriber updated = gymManagementService.updateSubscriber(id, updatedSubscriber);
-
-	        if (updated != null) {
-	            return ResponseEntity.ok(updated);
-	        } else {
-	            return ResponseEntity.notFound().build();
-	        }
-	    }
-    }
-
-
-
+}

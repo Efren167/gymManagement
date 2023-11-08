@@ -22,7 +22,6 @@ public class GymManagementService {
 	@Autowired
 	private ManagementRepository managementRepository;
 
-
 	public List<SubscriberDTO> getAllSubscribers() {
 		List<Subscriber> subscribers = this.subscriberRepository.findAll();
 		List<SubscriberDTO> lstSubscriberDTO = new ArrayList<>();
@@ -35,11 +34,11 @@ public class GymManagementService {
 
 		return lstSubscriberDTO;
 	}
-	
+
 	public Optional<SubscriberDTO> getSubscriber(Long id) {
-	    Optional<Subscriber> subscriber = subscriberRepository.findById(id);
-	    Optional<SubscriberDTO> subscriberDTO = subscriber.map(sub -> convertToDTO(sub));
-	    return subscriberDTO;
+		Optional<Subscriber> subscriber = subscriberRepository.findById(id);
+		Optional<SubscriberDTO> subscriberDTO = subscriber.map(sub -> convertToDTO(sub));
+		return subscriberDTO;
 	}
 
 	private SubscriberDTO convertToDTO(Subscriber subscriber) {
@@ -50,34 +49,33 @@ public class GymManagementService {
 		return subscriberDTO;
 	}
 
-
 	public List<ManagementDTO> getAllPayments() {
 
 		List<Management> payments = this.managementRepository.findAll();
 		List<ManagementDTO> lstManagementDTO = new ArrayList<>();
 		payments.stream().forEach(payment -> {
-			ManagementDTO managementDTO = ManagementDTO.builder().id(payment.getSubscriptionId().getId()).withInvoiced(payment.isInvoiced()).withAccess(payment.isAccess()).build();
+			ManagementDTO managementDTO = ManagementDTO.builder().id(payment.getSubscriptionId().getId())
+					.withInvoiced(payment.isInvoiced()).withAccess(payment.isAccess()).build();
 			lstManagementDTO.add(managementDTO);
 		});
 
 		return lstManagementDTO;
 	}
-	
+
 	public Subscriber updateSubscriber(Long id, Subscriber updatedSubscriber) {
-        Subscriber existingSubscriber = subscriberRepository.findById(id).orElse(null);
+		Subscriber existingSubscriber = subscriberRepository.findById(id).orElse(null);
 
-        if (existingSubscriber != null) {
-            existingSubscriber.setName(updatedSubscriber.getName());
-            existingSubscriber.setSurname(updatedSubscriber.getSurname());
-            existingSubscriber.setDni(updatedSubscriber.getDni());
-            existingSubscriber.setEmail(updatedSubscriber.getEmail());
-            existingSubscriber.setPhone(updatedSubscriber.getPhone());
+		if (existingSubscriber != null) {
+			existingSubscriber.setName(updatedSubscriber.getName());
+			existingSubscriber.setSurname(updatedSubscriber.getSurname());
+			existingSubscriber.setDni(updatedSubscriber.getDni());
+			existingSubscriber.setEmail(updatedSubscriber.getEmail());
+			existingSubscriber.setPhone(updatedSubscriber.getPhone());
 
-            return subscriberRepository.save(existingSubscriber);
-        }
+			return subscriberRepository.save(existingSubscriber);
+		}
 
-        return null; // Manejo de error si no se encuentra el suscriptor
-    }
-	
+		return null;
+	}
+
 }
-	
