@@ -62,6 +62,22 @@ public class GymManagementService {
 
 		return lstManagementDTO;
 	}
+	
+	public Subscriber updateSubscriber(Long id, Subscriber updatedSubscriber) {
+        Subscriber existingSubscriber = subscriberRepository.findById(id).orElse(null);
 
+        if (existingSubscriber != null) {
+            existingSubscriber.setName(updatedSubscriber.getName());
+            existingSubscriber.setSurname(updatedSubscriber.getSurname());
+            existingSubscriber.setDni(updatedSubscriber.getDni());
+            existingSubscriber.setEmail(updatedSubscriber.getEmail());
+            existingSubscriber.setPhone(updatedSubscriber.getPhone());
+
+            return subscriberRepository.save(existingSubscriber);
+        }
+
+        return null; // Manejo de error si no se encuentra el suscriptor
+    }
+	
 }
 	
