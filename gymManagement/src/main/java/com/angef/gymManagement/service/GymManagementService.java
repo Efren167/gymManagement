@@ -61,7 +61,6 @@ public class GymManagementService {
 
 		return lstManagementDTO;
 	}
-
 	public Subscriber updateSubscriber(Long id, Subscriber updatedSubscriber) {
 		Subscriber existingSubscriber = subscriberRepository.findById(id).orElse(null);
 
