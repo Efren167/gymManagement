@@ -62,4 +62,8 @@ public class GymManagementService {
 
 		return lstManagementDTO;
 	}
+	
+	public Subscriber updateSubscriber(Subscriber updatedSubscriber) {
+        return subscriberRepository.save(updatedSubscriber);
+   }
 }
