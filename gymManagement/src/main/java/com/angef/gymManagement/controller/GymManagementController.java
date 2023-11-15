@@ -5,8 +5,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +36,6 @@ public class GymManagementController {
 	public List<ManagementDTO> getPayments(){
 		return this.gymManagementService.getAllPayments();
 	}
-
-
 	
 	@GetMapping("/subscriber/{id}")
     public Optional<SubscriberDTO> buscarPorId(@PathVariable Long id) {
@@ -49,6 +49,19 @@ public class GymManagementController {
         updatedSubscriber.setId(id);
         this.gymManagementService.updateSubscriber(updatedSubscriber);
     }
-
+	
+	 @DeleteMapping("/subscriber/{id}")
+	    public void deleteSubscriber(@PathVariable Long id,
+	    		@RequestBody Subscriber deletedSubscriber) {
+		 deletedSubscriber.setId(id); {
+	        this.gymManagementService.deleteSubscriber(deletedSubscriber);
+	    }
+	 }
+	 
+	 @PostMapping("/subscriber/{id}")
+	    public void addSubscriber(@RequestBody Subscriber newSubscriber) {
+	        this.gymManagementService.addSubscriber(newSubscriber);
+	    }
+	 
 
 }

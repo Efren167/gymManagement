@@ -66,4 +66,12 @@ public class GymManagementService {
 	public Subscriber updateSubscriber(Subscriber updatedSubscriber) {
         return subscriberRepository.save(updatedSubscriber);
    }
+	
+	   public void deleteSubscriber(Subscriber deletedSubscriber) {
+	        subscriberRepository.delete(deletedSubscriber);
+	    }
+	   
+	   public void addSubscriber(Subscriber newSubscriber) {
+	        subscriberRepository.save(newSubscriber);
+	    }
 }
