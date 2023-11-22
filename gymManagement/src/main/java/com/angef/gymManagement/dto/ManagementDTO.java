@@ -66,4 +66,6 @@ public class ManagementDTO {
 			return new ManagementDTO(this);
 		}
 	}
+	 public ManagementDTO() {
+	    }
 }

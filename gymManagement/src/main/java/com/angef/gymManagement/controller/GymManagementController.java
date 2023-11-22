@@ -50,18 +50,15 @@ public class GymManagementController {
         this.gymManagementService.updateSubscriber(updatedSubscriber);
     }
 	
-	 @DeleteMapping("/subscriber/{id}")
-	    public void deleteSubscriber(@PathVariable Long id,
-	    		@RequestBody Subscriber deletedSubscriber) {
-		 deletedSubscriber.setId(id); {
-	        this.gymManagementService.deleteSubscriber(deletedSubscriber);
-	    }
-	 }
+	@DeleteMapping("/subscriber/{id}")
+	public void deleteSubscriber(@PathVariable Long id) {
+	    this.gymManagementService.deleteSubscriber(id);
+	}
 	 
-	 @PostMapping("/subscriber/{id}")
-	    public void addSubscriber(@RequestBody Subscriber newSubscriber) {
-	        this.gymManagementService.addSubscriber(newSubscriber);
-	    }
+	@PostMapping("/subscriber/{id}")
+	public void addSubscriber(@RequestBody Subscriber newSubscriber) {
+	    this.gymManagementService.addSubscriber(newSubscriber);
+	}
 	 
 
 }

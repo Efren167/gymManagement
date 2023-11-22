@@ -67,11 +67,11 @@ public class GymManagementService {
         return subscriberRepository.save(updatedSubscriber);
    }
 	
-	   public void deleteSubscriber(Subscriber deletedSubscriber) {
-	        subscriberRepository.delete(deletedSubscriber);
-	    }
+	public void deleteSubscriber(Long subscriberId) {
+	    subscriberRepository.deleteById(subscriberId);
+   }
 	   
-	   public void addSubscriber(Subscriber newSubscriber) {
-	        subscriberRepository.save(newSubscriber);
-	    }
+	public void addSubscriber(Subscriber newSubscriber) {
+	    subscriberRepository.save(newSubscriber);
+	}
 }

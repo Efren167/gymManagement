@@ -1,6 +1,7 @@
 package com.angef.gymManagement.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Embeddable
 @Table(name = "Management")
 public class Management {
 
@@ -60,5 +62,7 @@ public class Management {
 	public void setAccess(boolean access) {
 		this.access = access;
 	}
+	
+	
 
 }
