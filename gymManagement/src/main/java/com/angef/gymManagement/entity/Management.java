@@ -59,10 +59,10 @@ public class Management {
 		this.invoiced = invoiced;
 	}
 
+	
 	public void setAccess(boolean access) {
 		this.access = access;
-		
-	}
+		}
 	
 	
 
