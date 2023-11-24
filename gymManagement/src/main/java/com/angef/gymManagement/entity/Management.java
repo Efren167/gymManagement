@@ -61,6 +61,7 @@ public class Management {
 
 	public void setAccess(boolean access) {
 		this.access = access;
+		
 	}
 	
 	
